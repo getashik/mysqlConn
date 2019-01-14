@@ -16,7 +16,7 @@ App.get("/get",(req,res)=>{
 
 App.post("/put",(req,res)=>{
 
-  connection.query(`INSERT INTO testdb.users VALUES('','${req.body.name}','${req.body.email}')`, 
+  connection.query(`INSERT INTO getashik.users VALUES('','${req.body.name}','${req.body.email}')`, 
   function (error, results, fields) {
     if (error) throw error;
     
@@ -27,7 +27,7 @@ App.post("/put",(req,res)=>{
 
 App.post("/delete",(req,res)=>{
 
-  connection.query(`delete from testdb.users WHERE id='${req.body.id}'`, 
+  connection.query(`delete from getashik.users WHERE id='${req.body.id}'`, 
   function (error, results, fields) {
     if (error) throw error;
     
@@ -45,10 +45,10 @@ App.listen(3030, ()=>{
 })
 
 var connection = mysql.createConnection({
-        host     : 'mydb.ccwvykoe9gev.us-east-2.rds.amazonaws.com',
+        host     : 'getashik-awsdb.ccwvykoe9gev.us-east-2.rds.amazonaws.com',
         user     : 'getashik',
         password : '$Forget123',
-        database : 'testdb'
+        database : 'getashik'
 });
 connection.connect();
 
